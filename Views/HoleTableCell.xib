@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HoleTableCell" customModule="GolfScore" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HoleTableCell" customModule="GolfScore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vao-Vq-2Fn">
+                        <rect key="frame" x="5" y="10" width="42" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Par" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZsK-Gl-s0U">
+                        <rect key="frame" x="55" y="10" width="50" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="FaV-rx-Cqc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="continue"/>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Score" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4bv-sQ-wjF">
+                        <rect key="frame" x="230" y="10" width="75" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="Nbn-yh-c0U"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vao-Vq-2Fn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="54X-Pc-ScT"/>
+                    <constraint firstAttribute="bottom" secondItem="vao-Vq-2Fn" secondAttribute="bottom" constant="10" id="C8t-hY-c2k"/>
+                    <constraint firstItem="vao-Vq-2Fn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="UhU-PQ-F7a"/>
+                    <constraint firstAttribute="bottom" secondItem="ZsK-Gl-s0U" secondAttribute="bottom" constant="10" id="XJ8-bs-jm9"/>
+                    <constraint firstItem="4bv-sQ-wjF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="b0w-EU-7mH"/>
+                    <constraint firstItem="ZsK-Gl-s0U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="che-mq-6kM"/>
+                    <constraint firstAttribute="bottom" secondItem="4bv-sQ-wjF" secondAttribute="bottom" constant="10" id="g2f-vD-4Yq"/>
+                    <constraint firstItem="ZsK-Gl-s0U" firstAttribute="leading" secondItem="vao-Vq-2Fn" secondAttribute="trailing" constant="8" id="lLa-Hc-Hmu"/>
+                    <constraint firstAttribute="trailing" secondItem="4bv-sQ-wjF" secondAttribute="trailing" constant="15" id="xu8-tw-FEv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="holeLabel" destination="vao-Vq-2Fn" id="qhH-te-Say"/>
+                <outlet property="parTextField" destination="ZsK-Gl-s0U" id="3ub-9e-7xS"/>
+                <outlet property="scoreTextField" destination="4bv-sQ-wjF" id="hMv-6k-be7"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="95.758928571428569"/>
+        </tableViewCell>
+    </objects>
+</document>
