@@ -21,6 +21,21 @@ class HoleTableCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    
+//    MARK: Tried to add a done button to the top of the keyboard
+//    func setupTextFields() {
+//        let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: (self.superview?.frame.width)!, height: 30)))
+//        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+//        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonPressed))
+//
+//        toolbar.setItems([flexSpace, doneButton], animated: false)
+//        toolbar.sizeToFit()
+//    }
+//
+//    @objc func doneButtonPressed() {
+//        self.superview?.endEditing(true)
+//    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

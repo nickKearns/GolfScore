@@ -20,6 +20,8 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }()
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        print("view loaded")
@@ -37,11 +39,14 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         ])
         scoresTable.delegate = self
         scoresTable.dataSource = self
+        scoresTable.keyboardDismissMode = .onDrag
         
         scoresTable.register(UINib(nibName: "HoleTableCell", bundle: nil), forCellReuseIdentifier: "HoleTableCell")
         
     }
 
+    
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         9
