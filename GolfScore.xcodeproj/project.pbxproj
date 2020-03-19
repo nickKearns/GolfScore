@@ -9,25 +9,27 @@
 /* Begin PBXBuildFile section */
 		01EF5FB9242165400078096A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF5FB8242165400078096A /* AppDelegate.swift */; };
 		01EF5FBB242165400078096A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF5FBA242165400078096A /* SceneDelegate.swift */; };
-		01EF5FBD242165400078096A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF5FBC242165400078096A /* HomeVC.swift */; };
+		01EF5FBD242165400078096A /* PastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF5FBC242165400078096A /* PastVC.swift */; };
 		01EF5FC2242165420078096A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01EF5FC1242165420078096A /* Assets.xcassets */; };
 		01EF5FC5242165420078096A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01EF5FC3242165420078096A /* LaunchScreen.storyboard */; };
 		01F880C624216F880061FD86 /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880C524216F880061FD86 /* Hole.swift */; };
 		01F880CB2422A0300061FD86 /* HoleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880C92422A0300061FD86 /* HoleTableCell.swift */; };
 		01F880CC2422A0300061FD86 /* HoleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F880CA2422A0300061FD86 /* HoleTableCell.xib */; };
+		01F880CE2423E2140061FD86 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880CD2423E2140061FD86 /* HomeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01EF5FB5242165400078096A /* GolfScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01EF5FB8242165400078096A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01EF5FBA242165400078096A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		01EF5FBC242165400078096A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		01EF5FBC242165400078096A /* PastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastVC.swift; sourceTree = "<group>"; };
 		01EF5FC1242165420078096A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01EF5FC4242165420078096A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01EF5FC6242165420078096A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01F880C524216F880061FD86 /* Hole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hole.swift; sourceTree = "<group>"; };
 		01F880C92422A0300061FD86 /* HoleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleTableCell.swift; sourceTree = "<group>"; };
 		01F880CA2422A0300061FD86 /* HoleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoleTableCell.xib; sourceTree = "<group>"; };
+		01F880CD2423E2140061FD86 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +85,8 @@
 		01F880C724216FE20061FD86 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				01EF5FBC242165400078096A /* HomeVC.swift */,
+				01EF5FBC242165400078096A /* PastVC.swift */,
+				01F880CD2423E2140061FD86 /* HomeVC.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -168,9 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01EF5FBD242165400078096A /* HomeVC.swift in Sources */,
+				01EF5FBD242165400078096A /* PastVC.swift in Sources */,
 				01F880C624216F880061FD86 /* Hole.swift in Sources */,
 				01F880CB2422A0300061FD86 /* HoleTableCell.swift in Sources */,
+				01F880CE2423E2140061FD86 /* HomeVC.swift in Sources */,
 				01EF5FB9242165400078096A /* AppDelegate.swift in Sources */,
 				01EF5FBB242165400078096A /* SceneDelegate.swift in Sources */,
 			);
