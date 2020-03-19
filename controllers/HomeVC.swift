@@ -45,6 +45,13 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Current Round"
+    }
     
     
 
