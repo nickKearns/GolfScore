@@ -27,7 +27,7 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let scoreLabel: UILabel = {
         let scoreLabel = UILabel()
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        scoreLabel.text = "test"
+        scoreLabel.text = "Score: 0"
         return scoreLabel
     }()
     
@@ -39,6 +39,7 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setupTable()
         // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = false
+        hideKeyboardTapped()
     }
     
     func setupTable() {
@@ -97,3 +98,29 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 }
 
+
+//Huge thanks to Wesley Espinoza for providing this code snippet
+
+extension UIViewController {
+    static func instantiate() -> Self {
+        return self.init(nibName: String(describing: self), bundle:nil)
+    }
+    @objc func keyboardWillShow(notifaction: NSNotification) {
+        if let keyboardSize = (notifaction.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height - 50
+            }
+        }
+    }
+    @objc func keyboardWillHide() {
+        self.view.frame.origin.y = 0
+    }
+    func hideKeyboardTapped() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = true
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
