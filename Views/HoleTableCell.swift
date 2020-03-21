@@ -24,6 +24,8 @@ class HoleTableCell: UITableViewCell, UITextFieldDelegate {
         super.awakeFromNib()
         // Initialization code
         scoreTextField.delegate = self
+        parTextField.delegate = self
+        self.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -31,23 +33,26 @@ class HoleTableCell: UITableViewCell, UITextFieldDelegate {
         let cellScore = Int(self.scoreTextField.text ?? "0")
         
         delegate?.totalScore = (totalScore ?? 0) + (cellScore ?? 0)
-//        delegate?.scoreLabel.text = scoreTextField.text0
+        
+        let totalPar = delegate?.parTotal
+        let cellPar = Int(self.parTextField.text ?? "0")
+        
+        delegate?.parTotal = (totalPar ?? 0) + (cellPar ?? 0)
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let totalScore = delegate?.totalScore
+        let scoreToSubtract = Int(self.scoreTextField.text ?? "0")
+        
+        delegate?.totalScore = (totalScore ?? 0) - (scoreToSubtract ?? 0)
+        
+        let totalPar = delegate?.parTotal
+        let parToSubtract = Int(self.parTextField.text ?? "0")
+        
+        delegate?.parTotal = (totalPar ?? 0) - (parToSubtract ?? 0)
     }
     
     
-//    MARK: Tried to add a done button to the top of the keyboard
-//    func setupTextFields() {
-//        let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: (self.superview?.frame.width)!, height: 30)))
-//        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonPressed))
-//
-//        toolbar.setItems([flexSpace, doneButton], animated: false)
-//        toolbar.sizeToFit()
-//    }
-//
-//    @objc func doneButtonPressed() {
-//        self.superview?.endEditing(true)
-//    }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

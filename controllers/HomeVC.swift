@@ -88,10 +88,10 @@ class HomeVC: UIViewController {
     
     @objc func newButtonPressed() {
 //        self.view.window?.rootViewController = NewRoundVC()
-        self.navigationController?.pushViewController(NewRoundVC(), animated: true)
+        self.navigationController?.pushViewController(NumberOfHolesVC(), animated: true)
     }
     @objc func pastRoundButtonPressed() {
-        self.view.window?.rootViewController = PastRoundsVC()
+        self.navigationController?.pushViewController(NumberOfHolesVC(), animated: true)
     }
     
 }

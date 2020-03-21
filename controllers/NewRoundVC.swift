@@ -11,17 +11,26 @@ import UIKit
 class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    var numberOfHoles: Int = 9
+    
     var totalScore: Int = 0 {
         didSet {
-            scoreLabel.text = "Total: \(self.totalScore)"
+            scoreLabel.text = "Score: \(self.totalScore)"
         }
     }
-
+    
+    var parTotal: Int = 0 {
+        didSet {
+            parLabel.text = "Par: \(self.parTotal)"
+        }
+    }
+    
     let scoresTable: UITableView = {
-       let scoresTable = UITableView()
-       scoresTable.translatesAutoresizingMaskIntoConstraints = false
-       scoresTable.rowHeight = 75
-       return scoresTable
+        let scoresTable = UITableView()
+        scoresTable.translatesAutoresizingMaskIntoConstraints = false
+        scoresTable.rowHeight = 75
+        scoresTable.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        return scoresTable
     }()
     
     let scoreLabel: UILabel = {
@@ -29,6 +38,13 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.text = "Score: 0"
         return scoreLabel
+    }()
+    
+    let parLabel: UILabel = {
+        let parLabel = UILabel()
+        parLabel.translatesAutoresizingMaskIntoConstraints = false
+        parLabel.text = "Par: 0"
+        return parLabel
     }()
     
     
@@ -59,15 +75,22 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.view.addSubview(scoreLabel)
         
         NSLayoutConstraint.activate([
-            scoreLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            scoreLabel.centerXAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50),
             scoreLabel.heightAnchor.constraint(equalToConstant: 15),
             scoreLabel.bottomAnchor.constraint(equalTo: scoresTable.bottomAnchor, constant: -8)
         ])
         self.view.bringSubviewToFront(scoreLabel)
         
+        self.view.addSubview(parLabel)
+        NSLayoutConstraint.activate([
+            parLabel.centerXAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
+            parLabel.heightAnchor.constraint(equalToConstant: 15),
+            parLabel.bottomAnchor.constraint(equalTo: scoresTable.bottomAnchor, constant: -8)
+        ])
+        
         
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
@@ -79,11 +102,11 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected row")
     }
-  
     
-
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        9
+        self.numberOfHoles
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,7 +122,7 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 }
 
 
-//Huge thanks to Wesley Espinoza for providing this code snippet
+//Huge thanks to Wesley Espinoza for providing this extension
 
 extension UIViewController {
     static func instantiate() -> Self {
