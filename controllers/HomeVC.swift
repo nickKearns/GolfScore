@@ -27,7 +27,7 @@ class HomeVC: UIViewController {
         newRoundButton.layer.borderWidth = 2
         newRoundButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         newRoundButton.setTitleColor(.black, for: .normal)
-        newRoundButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        newRoundButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         newRoundButton.titleEdgeInsets = UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)
        return newRoundButton
     }()
@@ -40,6 +40,7 @@ class HomeVC: UIViewController {
         pastRoundsButton.layer.borderWidth = 2
         pastRoundsButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         pastRoundsButton.setTitleColor(.black, for: .normal)
+        pastRoundsButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         pastRoundsButton.titleEdgeInsets = UIEdgeInsets(top: 1.0, left: 1.0, bottom: 1.0, right: 1.0)
         return pastRoundsButton
     }()
@@ -48,6 +49,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     
@@ -70,6 +72,7 @@ class HomeVC: UIViewController {
             newRoundButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200),
             newRoundButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.40)
         ])
+        newRoundButton.addTarget(self, action: #selector(newButtonPressed), for: .touchUpInside)
         
         self.view.addSubview(pastRoundsButton)
         pastRoundsButton.backgroundColor = #colorLiteral(red: 0.2642833591, green: 0.7614423037, blue: 0.9702764153, alpha: 1)
@@ -77,8 +80,18 @@ class HomeVC: UIViewController {
             pastRoundsButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 100),
             pastRoundsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200),
             pastRoundsButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.40)
-        
         ])
+        pastRoundsButton.addTarget(self, action: #selector(pastRoundButtonPressed), for: .touchUpInside)
+        
+    }
+    
+    
+    @objc func newButtonPressed() {
+//        self.view.window?.rootViewController = NewRoundVC()
+        self.navigationController?.pushViewController(NewRoundVC(), animated: true)
+    }
+    @objc func pastRoundButtonPressed() {
+        self.view.window?.rootViewController = PastRoundsVC()
     }
     
 }

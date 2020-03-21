@@ -8,15 +8,27 @@
 
 import UIKit
 
-class PastVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    var totalScore: Int = 0 {
+        didSet {
+            scoreLabel.text = "Total: \(self.totalScore)"
+        }
+    }
 
     let scoresTable: UITableView = {
        let scoresTable = UITableView()
        scoresTable.translatesAutoresizingMaskIntoConstraints = false
        scoresTable.rowHeight = 75
        return scoresTable
+    }()
+    
+    let scoreLabel: UILabel = {
+        let scoreLabel = UILabel()
+        scoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        scoreLabel.text = "test"
+        return scoreLabel
     }()
     
     
@@ -26,6 +38,7 @@ class PastVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         setupTable()
         // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     func setupTable() {
@@ -42,6 +55,16 @@ class PastVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         scoresTable.register(UINib(nibName: "HoleTableCell", bundle: nil), forCellReuseIdentifier: "HoleTableCell")
         
+        self.view.addSubview(scoreLabel)
+        
+        NSLayoutConstraint.activate([
+            scoreLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            scoreLabel.heightAnchor.constraint(equalToConstant: 15),
+            scoreLabel.bottomAnchor.constraint(equalTo: scoresTable.bottomAnchor, constant: -8)
+        ])
+        self.view.bringSubviewToFront(scoreLabel)
+        
+        
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,6 +75,10 @@ class PastVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return "Current Round"
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected row")
+    }
+  
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,9 +87,11 @@ class PastVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell( withIdentifier: HoleTableCell.identifier, for: indexPath) as! HoleTableCell
+        cell.delegate = self
         cell.configure(numberHole: indexPath.row + 1)
         return cell
     }
+    
     
     
     

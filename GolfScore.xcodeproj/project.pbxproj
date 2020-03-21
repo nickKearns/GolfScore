@@ -9,20 +9,24 @@
 /* Begin PBXBuildFile section */
 		01EF5FB9242165400078096A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF5FB8242165400078096A /* AppDelegate.swift */; };
 		01EF5FBB242165400078096A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF5FBA242165400078096A /* SceneDelegate.swift */; };
-		01EF5FBD242165400078096A /* PastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF5FBC242165400078096A /* PastVC.swift */; };
+		01EF5FBD242165400078096A /* NewRoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EF5FBC242165400078096A /* NewRoundVC.swift */; };
 		01EF5FC2242165420078096A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01EF5FC1242165420078096A /* Assets.xcassets */; };
 		01EF5FC5242165420078096A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01EF5FC3242165420078096A /* LaunchScreen.storyboard */; };
 		01F880C624216F880061FD86 /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880C524216F880061FD86 /* Hole.swift */; };
 		01F880CB2422A0300061FD86 /* HoleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880C92422A0300061FD86 /* HoleTableCell.swift */; };
 		01F880CC2422A0300061FD86 /* HoleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F880CA2422A0300061FD86 /* HoleTableCell.xib */; };
 		01F880CE2423E2140061FD86 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880CD2423E2140061FD86 /* HomeVC.swift */; };
+		01F880D02423F5E10061FD86 /* PastRoundsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880CF2423F5E10061FD86 /* PastRoundsVC.swift */; };
+		01F880D32423F70C0061FD86 /* RoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880D12423F70C0061FD86 /* RoundTableViewCell.swift */; };
+		01F880D42423F70C0061FD86 /* RoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F880D22423F70C0061FD86 /* RoundTableViewCell.xib */; };
+		01F880D6242415250061FD86 /* currentScoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880D5242415250061FD86 /* currentScoreFooter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01EF5FB5242165400078096A /* GolfScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01EF5FB8242165400078096A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01EF5FBA242165400078096A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		01EF5FBC242165400078096A /* PastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastVC.swift; sourceTree = "<group>"; };
+		01EF5FBC242165400078096A /* NewRoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoundVC.swift; sourceTree = "<group>"; };
 		01EF5FC1242165420078096A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01EF5FC4242165420078096A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01EF5FC6242165420078096A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +34,10 @@
 		01F880C92422A0300061FD86 /* HoleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleTableCell.swift; sourceTree = "<group>"; };
 		01F880CA2422A0300061FD86 /* HoleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoleTableCell.xib; sourceTree = "<group>"; };
 		01F880CD2423E2140061FD86 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		01F880CF2423F5E10061FD86 /* PastRoundsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRoundsVC.swift; sourceTree = "<group>"; };
+		01F880D12423F70C0061FD86 /* RoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTableViewCell.swift; sourceTree = "<group>"; };
+		01F880D22423F70C0061FD86 /* RoundTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundTableViewCell.xib; sourceTree = "<group>"; };
+		01F880D5242415250061FD86 /* currentScoreFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentScoreFooter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +93,8 @@
 		01F880C724216FE20061FD86 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				01EF5FBC242165400078096A /* PastVC.swift */,
+				01EF5FBC242165400078096A /* NewRoundVC.swift */,
+				01F880CF2423F5E10061FD86 /* PastRoundsVC.swift */,
 				01F880CD2423E2140061FD86 /* HomeVC.swift */,
 			);
 			path = controllers;
@@ -96,6 +105,9 @@
 			children = (
 				01F880C92422A0300061FD86 /* HoleTableCell.swift */,
 				01F880CA2422A0300061FD86 /* HoleTableCell.xib */,
+				01F880D12423F70C0061FD86 /* RoundTableViewCell.swift */,
+				01F880D22423F70C0061FD86 /* RoundTableViewCell.xib */,
+				01F880D5242415250061FD86 /* currentScoreFooter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +172,7 @@
 			files = (
 				01F880CC2422A0300061FD86 /* HoleTableCell.xib in Resources */,
 				01EF5FC5242165420078096A /* LaunchScreen.storyboard in Resources */,
+				01F880D42423F70C0061FD86 /* RoundTableViewCell.xib in Resources */,
 				01EF5FC2242165420078096A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,11 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01EF5FBD242165400078096A /* PastVC.swift in Sources */,
+				01EF5FBD242165400078096A /* NewRoundVC.swift in Sources */,
+				01F880D02423F5E10061FD86 /* PastRoundsVC.swift in Sources */,
 				01F880C624216F880061FD86 /* Hole.swift in Sources */,
 				01F880CB2422A0300061FD86 /* HoleTableCell.swift in Sources */,
 				01F880CE2423E2140061FD86 /* HomeVC.swift in Sources */,
 				01EF5FB9242165400078096A /* AppDelegate.swift in Sources */,
+				01F880D6242415250061FD86 /* currentScoreFooter.swift in Sources */,
+				01F880D32423F70C0061FD86 /* RoundTableViewCell.swift in Sources */,
 				01EF5FBB242165400078096A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,9 +8,12 @@
 
 import UIKit
 
-class HoleTableCell: UITableViewCell {
+class HoleTableCell: UITableViewCell, UITextFieldDelegate {
 
     static var identifier: String = "HoleTableCell"
+    
+    var delegate: NewRoundVC?
+    
     
 
     @IBOutlet weak var holeLabel: UILabel!
@@ -20,6 +23,15 @@ class HoleTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        scoreTextField.delegate = self
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let totalScore = delegate?.totalScore
+        let cellScore = Int(self.scoreTextField.text ?? "0")
+        
+        delegate?.totalScore = (totalScore ?? 0) + (cellScore ?? 0)
+//        delegate?.scoreLabel.text = scoreTextField.text0
     }
     
     
