@@ -9,13 +9,13 @@
 import UIKit
 
 class HoleTableCell: UITableViewCell, UITextFieldDelegate {
-
+    
     static var identifier: String = "HoleTableCell"
     
     var delegate: NewRoundVC?
     
     
-
+    
     @IBOutlet weak var holeLabel: UILabel!
     @IBOutlet weak var parTextField: UITextField!
     @IBOutlet weak var scoreTextField: UITextField!
@@ -25,7 +25,6 @@ class HoleTableCell: UITableViewCell, UITextFieldDelegate {
         // Initialization code
         scoreTextField.delegate = self
         parTextField.delegate = self
-        self.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -53,15 +52,23 @@ class HoleTableCell: UITableViewCell, UITextFieldDelegate {
     
     
     
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     func configure(numberHole: Int) {
         holeLabel.text = "Hole: \(numberHole)"
+        self.layer.borderWidth = 2
+        self.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        if numberHole % 2 == 0 {
+            backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        } else {
+            backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        }
     }
     
 }
+

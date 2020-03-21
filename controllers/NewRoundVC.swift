@@ -28,8 +28,8 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let scoresTable: UITableView = {
         let scoresTable = UITableView()
         scoresTable.translatesAutoresizingMaskIntoConstraints = false
-        scoresTable.rowHeight = 75
-        scoresTable.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        scoresTable.rowHeight = 50
+        scoresTable.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         return scoresTable
     }()
     
@@ -53,7 +53,7 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
-        // Do any additional setup after loading the view.
+        setupNavBar()
         self.navigationController?.isNavigationBarHidden = false
         hideKeyboardTapped()
     }
@@ -95,8 +95,19 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         1
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Current Round"
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Current Round"
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerText = UILabel()
+        headerText.textColor = .black
+        headerText.adjustsFontSizeToFitWidth = true
+        headerText.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        headerText.text = "Current Round"
+        headerText.textAlignment = .center
+
+        return headerText
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -114,6 +125,18 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         cell.configure(numberHole: indexPath.row + 1)
         return cell
+    }
+    
+    
+    
+    func setupNavBar() {
+        title = "Golf Score"
+        let addButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(pressRoundDone))
+        navigationItem.rightBarButtonItem = addButton
+    }
+    @objc func pressRoundDone(_ sender: UIBarButtonItem) {
+        //do all persistence work here
+        
     }
     
     

@@ -19,9 +19,9 @@
 		01F880D02423F5E10061FD86 /* PastRoundsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880CF2423F5E10061FD86 /* PastRoundsVC.swift */; };
 		01F880D32423F70C0061FD86 /* RoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880D12423F70C0061FD86 /* RoundTableViewCell.swift */; };
 		01F880D42423F70C0061FD86 /* RoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F880D22423F70C0061FD86 /* RoundTableViewCell.xib */; };
-		01F880D6242415250061FD86 /* currentScoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880D5242415250061FD86 /* currentScoreFooter.swift */; };
 		01F880D8242696F80061FD86 /* RoundCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880D7242696F80061FD86 /* RoundCard.swift */; };
 		01F880DA2426B6540061FD86 /* NumberOfHolesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880D92426B6540061FD86 /* NumberOfHolesVC.swift */; };
+		01F880DC2426D5D20061FD86 /* FinishedRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F880DB2426D5D20061FD86 /* FinishedRound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +39,9 @@
 		01F880CF2423F5E10061FD86 /* PastRoundsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastRoundsVC.swift; sourceTree = "<group>"; };
 		01F880D12423F70C0061FD86 /* RoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTableViewCell.swift; sourceTree = "<group>"; };
 		01F880D22423F70C0061FD86 /* RoundTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundTableViewCell.xib; sourceTree = "<group>"; };
-		01F880D5242415250061FD86 /* currentScoreFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currentScoreFooter.swift; sourceTree = "<group>"; };
 		01F880D7242696F80061FD86 /* RoundCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCard.swift; sourceTree = "<group>"; };
 		01F880D92426B6540061FD86 /* NumberOfHolesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfHolesVC.swift; sourceTree = "<group>"; };
+		01F880DB2426D5D20061FD86 /* FinishedRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedRound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +102,7 @@
 				01F880CF2423F5E10061FD86 /* PastRoundsVC.swift */,
 				01F880CD2423E2140061FD86 /* HomeVC.swift */,
 				01F880D92426B6540061FD86 /* NumberOfHolesVC.swift */,
+				01F880DB2426D5D20061FD86 /* FinishedRound.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -113,7 +114,6 @@
 				01F880CA2422A0300061FD86 /* HoleTableCell.xib */,
 				01F880D12423F70C0061FD86 /* RoundTableViewCell.swift */,
 				01F880D22423F70C0061FD86 /* RoundTableViewCell.xib */,
-				01F880D5242415250061FD86 /* currentScoreFooter.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F880DC2426D5D20061FD86 /* FinishedRound.swift in Sources */,
 				01EF5FBD242165400078096A /* NewRoundVC.swift in Sources */,
 				01F880D02423F5E10061FD86 /* PastRoundsVC.swift in Sources */,
 				01F880C624216F880061FD86 /* Hole.swift in Sources */,
@@ -198,7 +199,6 @@
 				01F880CE2423E2140061FD86 /* HomeVC.swift in Sources */,
 				01EF5FB9242165400078096A /* AppDelegate.swift in Sources */,
 				01F880DA2426B6540061FD86 /* NumberOfHolesVC.swift in Sources */,
-				01F880D6242415250061FD86 /* currentScoreFooter.swift in Sources */,
 				01F880D32423F70C0061FD86 /* RoundTableViewCell.swift in Sources */,
 				01EF5FBB242165400078096A /* SceneDelegate.swift in Sources */,
 			);
