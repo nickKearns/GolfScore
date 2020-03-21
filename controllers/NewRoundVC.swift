@@ -135,7 +135,10 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         navigationItem.rightBarButtonItem = addButton
     }
     @objc func pressRoundDone(_ sender: UIBarButtonItem) {
-        //do all persistence work here
+        let finishedRoundVC = FinishedRound()
+        finishedRoundVC.parTotal = self.parTotal
+        finishedRoundVC.scoreTotal = self.totalScore
+        self.navigationController?.pushViewController(finishedRoundVC, animated: true)
         
     }
     
