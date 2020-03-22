@@ -60,12 +60,17 @@ class NumberOfHolesVC: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     
     func setupLabel() {
         self.view.addSubview(numHolesLabel)
         NSLayoutConstraint.activate([
             numHolesLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            numHolesLabel.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 0.85),
+            numHolesLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -150),
             numHolesLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.75)
         
         ])

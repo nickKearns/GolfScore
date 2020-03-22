@@ -28,7 +28,7 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let scoresTable: UITableView = {
         let scoresTable = UITableView()
         scoresTable.translatesAutoresizingMaskIntoConstraints = false
-        scoresTable.rowHeight = 50
+        scoresTable.rowHeight = 75
         scoresTable.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         return scoresTable
     }()
@@ -57,6 +57,8 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.isNavigationBarHidden = false
         hideKeyboardTapped()
     }
+    
+    
     
     func setupTable() {
         self.view.addSubview(scoresTable)
@@ -135,6 +137,8 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         navigationItem.rightBarButtonItem = addButton
     }
     @objc func pressRoundDone(_ sender: UIBarButtonItem) {
+        var persistenceLayer = PersistenceLayer()
+        persistenceLayer.createNewRound(parScore: self.parTotal, numberOfHoles: self.numberOfHoles, userScore: self.totalScore)
         let finishedRoundVC = FinishedRound()
         finishedRoundVC.parTotal = self.parTotal
         finishedRoundVC.scoreTotal = self.totalScore

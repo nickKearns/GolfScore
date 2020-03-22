@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Round {
+struct Round: Codable {
     let parScore: Int
     let numberOfHoles: Int
     let userScore: Int
