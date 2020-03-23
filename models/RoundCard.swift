@@ -13,11 +13,13 @@ struct Round: Codable {
     let parScore: Int
     let numberOfHoles: Int
     let userScore: Int
+    let courseName: String
     
-    init(parScore: Int, numberOfHoles: Int, userScore: Int) {
+    init(parScore: Int, numberOfHoles: Int, userScore: Int, courseName:String) {
         self.parScore = parScore
         self.numberOfHoles = numberOfHoles
         self.userScore = userScore
+        self.courseName = courseName
     }
     
     

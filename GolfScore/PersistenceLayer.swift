@@ -53,9 +53,9 @@ struct PersistenceLayer {
     }
     
     @discardableResult
-    mutating func createNewRound(parScore: Int, numberOfHoles: Int, userScore: Int) -> Round {
+    mutating func createNewRound(parScore: Int, numberOfHoles: Int, userScore: Int, courseName: String) -> Round {
         
-        let newRound = Round(parScore: parScore, numberOfHoles: numberOfHoles, userScore: userScore)
+        let newRound = Round(parScore: parScore, numberOfHoles: numberOfHoles, userScore: userScore, courseName: courseName)
         self.rounds.insert(newRound, at: 0)
         self.saveHabits()
         return newRound

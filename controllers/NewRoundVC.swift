@@ -13,6 +13,8 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var numberOfHoles: Int = 9
     
+    var courseName: String = ""
+    
     var totalScore: Int = 0 {
         didSet {
             scoreLabel.text = "Score: \(self.totalScore)"
@@ -106,7 +108,7 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         headerText.textColor = .black
         headerText.adjustsFontSizeToFitWidth = true
         headerText.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
-        headerText.text = "Current Round"
+        headerText.text = courseName
         headerText.textAlignment = .center
 
         return headerText
@@ -138,7 +140,7 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     @objc func pressRoundDone(_ sender: UIBarButtonItem) {
         var persistenceLayer = PersistenceLayer()
-        persistenceLayer.createNewRound(parScore: self.parTotal, numberOfHoles: self.numberOfHoles, userScore: self.totalScore)
+        persistenceLayer.createNewRound(parScore: self.parTotal, numberOfHoles: self.numberOfHoles, userScore: self.totalScore, courseName: self.courseName)
         let finishedRoundVC = FinishedRound()
         finishedRoundVC.parTotal = self.parTotal
         finishedRoundVC.scoreTotal = self.totalScore
@@ -151,8 +153,6 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
-//Huge thanks to Wesley Espinoza for providing this extension
 
 extension UIViewController {
     static func instantiate() -> Self {

@@ -52,11 +52,26 @@ class NumberOfHolesVC: UIViewController {
         
     }()
     
+    let courseNameTextField: UITextField = {
+        let courseNameTextField = UITextField()
+        courseNameTextField.translatesAutoresizingMaskIntoConstraints = false
+        courseNameTextField.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        courseNameTextField.placeholder = "Course Name"
+        courseNameTextField.layer.cornerRadius = 10
+        courseNameTextField.font = .systemFont(ofSize: 45)
+        courseNameTextField.layer.borderWidth = 3
+        courseNameTextField.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        return courseNameTextField
+        
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         setupLabel()
         setupButtons()
+        setupTextField()
+        hideKeyboardTapped()
         self.navigationController?.isNavigationBarHidden = true
     }
     
@@ -96,16 +111,28 @@ class NumberOfHolesVC: UIViewController {
         
     }
     
+    func setupTextField() {
+        self.view.addSubview(courseNameTextField)
+        NSLayoutConstraint.activate([
+            courseNameTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            courseNameTextField.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ])
+    }
+    
     @objc func nineButtonPressed() {
         let newRoundVC = NewRoundVC()
         newRoundVC.numberOfHoles = 9
+        newRoundVC.courseName = self.courseNameTextField.text ?? ""
         self.navigationController?.pushViewController(newRoundVC, animated: true)
     }
     @objc func eighteenButtonPressed() {
         let newRoundVC = NewRoundVC()
         newRoundVC.numberOfHoles = 18
+        newRoundVC.courseName = self.courseNameTextField.text ?? ""
         self.navigationController?.pushViewController(newRoundVC, animated: true)
     }
     
     
 }
+
+

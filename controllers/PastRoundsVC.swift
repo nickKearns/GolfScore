@@ -10,6 +10,7 @@ import UIKit
 
 class PastRoundsVC: UIViewController {
     
+    let persistenceLayer = PersistenceLayer()
     
     
     let roundsTable: UITableView = {
@@ -43,10 +44,10 @@ class PastRoundsVC: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        persistenceLayer.rounds.count
     }
 //    
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: <#T##String#>)
+//        
 //    }
 }

@@ -15,7 +15,7 @@ class HomeVC: UIViewController {
     let logoImage: UIImageView = {
         let logoImage = UIImageView()
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.image = UIImage(named: "logo")
+        logoImage.image = UIImage(named: "logo-1")
         return logoImage
     }()
     
@@ -56,7 +56,7 @@ class HomeVC: UIViewController {
 //        super.viewWillAppear(animated)
 //        self.navigationController?.isNavigationBarHidden = true
 //    }
-//    
+//
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //        self.navigationController?.isNavigationBarHidden = true
