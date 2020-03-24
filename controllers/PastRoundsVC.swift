@@ -8,58 +8,74 @@
 
 import UIKit
 
-class PastRoundsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PastRoundsVC: UITableViewController {
     
     private var persistenceLayer = PersistenceLayer()
     
-    
-    let roundsTable: UITableView = {
-        let roundsTable = UITableView()
-        roundsTable.translatesAutoresizingMaskIntoConstraints = false
-        roundsTable.rowHeight = 75
-        return roundsTable
-    }()
-    
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupTable()
+        tableView.register(
+            RoundTableViewCell.nib,
+            forCellReuseIdentifier: RoundTableViewCell.identifier
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         persistenceLayer.setNeedsToReloadRounds()
-        roundsTable.reloadData()
+        tableView.reloadData()
+
     }
     
     
+
     
-    func setupTable() {
-        self.view.addSubview(roundsTable)
-        NSLayoutConstraint.activate([
-            roundsTable.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            roundsTable.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            roundsTable.topAnchor.constraint(equalTo: self.view.topAnchor),
-            roundsTable.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
-        
-        roundsTable.register(UINib(nibName: "RoundTableViewCell", bundle: nil), forCellReuseIdentifier: "RoundTableViewCell")
-        
-        
-        
-        
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         persistenceLayer.rounds.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RoundTableViewCell.identifier, for: indexPath) as! RoundTableViewCell
         let round = persistenceLayer.rounds[indexPath.row]
         cell.configure(course: round.courseName, par: round.parScore, score: round.userScore)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            
+            // handling the delete action
+            let roundToDelete = persistenceLayer.rounds[indexPath.row]
+            let roundIndexToDelete = indexPath.row
+            let deleteAlert = UIAlertController(courseName: roundToDelete.courseName) {
+                self.persistenceLayer.delete(roundIndexToDelete)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            self.present(deleteAlert, animated: true)
+            
+            
+        default:
+            break
+        }
+    }
+    
+}
+
+
+extension UIAlertController {
+    convenience init(courseName: String, confirmHandler: @escaping () -> Void) {
+        self.init(title: "Delete Round", message: "Are you sure you want to delete this \(courseName) round?", preferredStyle: .actionSheet)
+        
+        let confirmAction = UIAlertAction(title: "confirm?", style: .destructive) { _ in
+            confirmHandler()
+        }
+        self.addAction(confirmAction)
+        
+        let cancelAction = UIAlertAction(title: "cancel?", style: .cancel)
+        self.addAction(cancelAction    )
     }
 }

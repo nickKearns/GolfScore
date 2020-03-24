@@ -18,6 +18,10 @@ class RoundTableViewCell: UITableViewCell {
     
     @IBOutlet weak var scoreLabel: UILabel!
     
+    static var nib: UINib {
+        return UINib(nibName: String(describing: self), bundle: nil)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

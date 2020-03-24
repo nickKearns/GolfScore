@@ -30,7 +30,7 @@ class FinishedRound: UIViewController {
     let finishedLabel: UILabel = {
         let finishedLabel = UILabel()
         finishedLabel.translatesAutoresizingMaskIntoConstraints = false
-        finishedLabel.text = "Your Finished Round"
+        finishedLabel.text = "Your Round"
         finishedLabel.layer.cornerRadius = 10
         finishedLabel.font = .systemFont(ofSize: 45)
         finishedLabel.textAlignment = .center
