@@ -27,17 +27,28 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
+//    let footerText: UILabel = {
+//        let footerText = UILabel()
+//        footerText.translatesAutoresizingMaskIntoConstraints = false
+//        footerText.textAlignment = .center
+//        footerText.text = "Par: 0   Score: 0"
+//        return footerText
+//    }()
+    
+    
     let scoresTable: UITableView = {
         let scoresTable = UITableView()
         scoresTable.translatesAutoresizingMaskIntoConstraints = false
         scoresTable.rowHeight = 75
-        scoresTable.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        scoresTable.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         return scoresTable
     }()
     
     let scoreLabel: UILabel = {
         let scoreLabel = UILabel()
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        scoreLabel.font = .systemFont(ofSize: 30)
         scoreLabel.text = "Score: 0"
         return scoreLabel
     }()
@@ -45,6 +56,7 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let parLabel: UILabel = {
         let parLabel = UILabel()
         parLabel.translatesAutoresizingMaskIntoConstraints = false
+        parLabel.font = .systemFont(ofSize: 30)
         parLabel.text = "Par: 0"
         return parLabel
     }()
@@ -79,17 +91,15 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.view.addSubview(scoreLabel)
         
         NSLayoutConstraint.activate([
-            scoreLabel.centerXAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50),
-            scoreLabel.heightAnchor.constraint(equalToConstant: 15),
-            scoreLabel.bottomAnchor.constraint(equalTo: scoresTable.bottomAnchor, constant: -8)
+            scoreLabel.centerXAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -70),
+            scoreLabel.bottomAnchor.constraint(equalTo: scoresTable.bottomAnchor, constant: -10),
         ])
-        self.view.bringSubviewToFront(scoreLabel)
+//        self.view.bringSubviewToFront(scoreLabel)
         
         self.view.addSubview(parLabel)
         NSLayoutConstraint.activate([
             parLabel.centerXAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
-            parLabel.heightAnchor.constraint(equalToConstant: 15),
-            parLabel.bottomAnchor.constraint(equalTo: scoresTable.bottomAnchor, constant: -8)
+            parLabel.bottomAnchor.constraint(equalTo: scoresTable.bottomAnchor, constant: -10)
         ])
         
         
@@ -98,27 +108,21 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Current Round"
-//    }
+
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerText = UILabel()
         headerText.textColor = .black
         headerText.adjustsFontSizeToFitWidth = true
-        headerText.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        headerText.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         headerText.text = courseName
         headerText.textAlignment = .center
-
+        
         return headerText
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected row")
-    }
     
-    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.numberOfHoles
@@ -144,6 +148,7 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let finishedRoundVC = FinishedRound()
         finishedRoundVC.parTotal = self.parTotal
         finishedRoundVC.scoreTotal = self.totalScore
+        finishedRoundVC.courseName = self.courseName
         self.navigationController?.pushViewController(finishedRoundVC, animated: true)
         
     }
@@ -154,26 +159,3 @@ class NewRoundVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 }
 
 
-extension UIViewController {
-    static func instantiate() -> Self {
-        return self.init(nibName: String(describing: self), bundle:nil)
-    }
-    @objc func keyboardWillShow(notifaction: NSNotification) {
-        if let keyboardSize = (notifaction.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height - 50
-            }
-        }
-    }
-    @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
-    }
-    func hideKeyboardTapped() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = true
-        view.addGestureRecognizer(tap)
-    }
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}

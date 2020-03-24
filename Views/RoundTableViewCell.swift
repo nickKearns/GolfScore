@@ -12,6 +12,12 @@ class RoundTableViewCell: UITableViewCell {
     
     static var identifier: String = "RoundTableViewCell"
 
+    @IBOutlet weak var courseLabel: UILabel!
+    
+    @IBOutlet weak var parLabel: UILabel!
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,6 +27,12 @@ class RoundTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configure(course: String, par: Int, score: Int) {
+        courseLabel.text = "Course: \(course)"
+        parLabel.text = "Par: \(par)"
+        scoreLabel.text = "Score: \(score)"
     }
     
 }

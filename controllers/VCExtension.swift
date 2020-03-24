@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 
-//Huge thanks to Wesley Espinoza for providing this extension
+//Thank you to Wesley Espinoza for this extension
 
 extension UIViewController {
     static func instantiate() -> Self {
@@ -34,3 +35,4 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+

@@ -101,7 +101,7 @@ class HomeVC: UIViewController {
         self.navigationController?.pushViewController(NumberOfHolesVC(), animated: true)
     }
     @objc func pastRoundButtonPressed() {
-        self.navigationController?.pushViewController(NumberOfHolesVC(), animated: true)
+        self.navigationController?.pushViewController(PastRoundsVC(), animated: true)
     }
     
 }

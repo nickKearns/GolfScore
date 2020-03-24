@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PastRoundsVC: UIViewController {
+class PastRoundsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let persistenceLayer = PersistenceLayer()
+    private var persistenceLayer = PersistenceLayer()
     
     
     let roundsTable: UITableView = {
@@ -23,9 +23,16 @@ class PastRoundsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupTable()
     }
-   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        persistenceLayer.setNeedsToReloadRounds()
+        roundsTable.reloadData()
+    }
+    
     
     
     func setupTable() {
@@ -37,6 +44,8 @@ class PastRoundsVC: UIViewController {
             roundsTable.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
+        roundsTable.register(UINib(nibName: "RoundTableViewCell", bundle: nil), forCellReuseIdentifier: "RoundTableViewCell")
+        
         
         
         
@@ -46,8 +55,11 @@ class PastRoundsVC: UIViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         persistenceLayer.rounds.count
     }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RoundTableViewCell.identifier, for: indexPath) as! RoundTableViewCell
+        let round = persistenceLayer.rounds[indexPath.row]
+        cell.configure(course: round.courseName, par: round.parScore, score: round.userScore)
+        return cell
+    }
 }

@@ -34,7 +34,7 @@ class NumberOfHolesVC: UIViewController {
         nineHolesButton.layer.cornerRadius = 10
         nineHolesButton.layer.borderWidth = 3
         nineHolesButton.layer.borderColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
-        nineHolesButton.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        nineHolesButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         return nineHolesButton
     }()
     
@@ -47,7 +47,7 @@ class NumberOfHolesVC: UIViewController {
         eighteenHolesButton.layer.cornerRadius = 10
         eighteenHolesButton.layer.borderWidth = 3
         eighteenHolesButton.layer.borderColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
-        eighteenHolesButton.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        eighteenHolesButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         return eighteenHolesButton
         
     }()
@@ -55,7 +55,7 @@ class NumberOfHolesVC: UIViewController {
     let courseNameTextField: UITextField = {
         let courseNameTextField = UITextField()
         courseNameTextField.translatesAutoresizingMaskIntoConstraints = false
-        courseNameTextField.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        courseNameTextField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         courseNameTextField.placeholder = "Course Name"
         courseNameTextField.layer.cornerRadius = 10
         courseNameTextField.font = .systemFont(ofSize: 45)
@@ -67,7 +67,7 @@ class NumberOfHolesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         setupLabel()
         setupButtons()
         setupTextField()
@@ -77,7 +77,7 @@ class NumberOfHolesVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     

@@ -32,7 +32,7 @@ struct PersistenceLayer {
         
     }
     
-    private func saveHabits() {
+    private func saveRounds() {
            guard let roundData = try? JSONEncoder().encode(self.rounds) else {
                fatalError("could not encode list of rounds")
            }
@@ -44,11 +44,11 @@ struct PersistenceLayer {
     
     mutating func delete(_ roundIndex: Int) {
         self.rounds.remove(at: roundIndex)
-        self.saveHabits()
+        self.saveRounds()
     }
     
     
-    mutating func setNeedsToReloadHabits() {
+    mutating func setNeedsToReloadRounds() {
         self.loadRounds()
     }
     
@@ -57,7 +57,7 @@ struct PersistenceLayer {
         
         let newRound = Round(parScore: parScore, numberOfHoles: numberOfHoles, userScore: userScore, courseName: courseName)
         self.rounds.insert(newRound, at: 0)
-        self.saveHabits()
+        self.saveRounds()
         return newRound
     }
     

@@ -21,12 +21,17 @@ class FinishedRound: UIViewController {
         }
     }
     
+    var courseName: String = "" {
+        didSet {
+            courseLabel.text = "Course: \(self.courseName)"
+        }
+    }
+    
     let finishedLabel: UILabel = {
         let finishedLabel = UILabel()
         finishedLabel.translatesAutoresizingMaskIntoConstraints = false
         finishedLabel.text = "Your Finished Round"
         finishedLabel.layer.cornerRadius = 10
-        finishedLabel.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         finishedLabel.font = .systemFont(ofSize: 45)
         finishedLabel.textAlignment = .center
         
@@ -39,7 +44,6 @@ class FinishedRound: UIViewController {
         parLabel.translatesAutoresizingMaskIntoConstraints = false
         parLabel.text = "Course Par:"
         parLabel.layer.cornerRadius = 10
-        parLabel.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         parLabel.font = .systemFont(ofSize: 25)
         parLabel.textAlignment = .center
         return parLabel
@@ -50,10 +54,19 @@ class FinishedRound: UIViewController {
         scoreLabel.translatesAutoresizingMaskIntoConstraints = false
         scoreLabel.text = "Your Score:"
         scoreLabel.layer.cornerRadius = 10
-        scoreLabel.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         scoreLabel.font = .systemFont(ofSize: 25)
         scoreLabel.textAlignment = .center
         return scoreLabel
+    }()
+    
+    let courseLabel: UILabel = {
+        let courseLabel = UILabel()
+        courseLabel.translatesAutoresizingMaskIntoConstraints = false
+        courseLabel.text = "Course: "
+        courseLabel.layer.cornerRadius = 10
+        courseLabel.font = .systemFont(ofSize: 25)
+        courseLabel.textAlignment = .center
+        return courseLabel
     }()
     
     
@@ -61,7 +74,7 @@ class FinishedRound: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        self.view.backgroundColor = .white
         setupLabels()
         
         
@@ -75,20 +88,29 @@ class FinishedRound: UIViewController {
         
         ])
         
+       
+        
+        self.view.addSubview(courseLabel)
+        NSLayoutConstraint.activate([
+            courseLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            courseLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        
+        
+        ])
+        
         self.view.addSubview(parLabel)
-        NSLayoutConstraint.activate([
-            parLabel.topAnchor.constraint(equalTo: finishedLabel.bottomAnchor, constant: 75),
-            parLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -100)
-        
-        ])
-        
-        self.view.addSubview(scoreLabel)
-        NSLayoutConstraint.activate([
-            scoreLabel.topAnchor.constraint(equalTo: finishedLabel.bottomAnchor, constant: 75),
-            scoreLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 100)
-        
-        ])
-        
+               NSLayoutConstraint.activate([
+                   parLabel.topAnchor.constraint(equalTo: courseLabel.bottomAnchor, constant: 75),
+                   parLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -100)
+               
+               ])
+               
+               self.view.addSubview(scoreLabel)
+               NSLayoutConstraint.activate([
+                   scoreLabel.topAnchor.constraint(equalTo: courseLabel.bottomAnchor, constant: 75),
+                   scoreLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 100)
+               
+               ])
     }
     
 }
