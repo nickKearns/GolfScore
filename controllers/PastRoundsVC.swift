@@ -17,10 +17,12 @@ class PastRoundsVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
         tableView.register(
             RoundTableViewCell.nib,
             forCellReuseIdentifier: RoundTableViewCell.identifier
         )
+        setupNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +63,11 @@ class PastRoundsVC: UITableViewController {
         default:
             break
         }
+    }
+    
+    func setupNavBar() {
+        title = "Past Rounds"
+        navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
 }

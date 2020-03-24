@@ -18,6 +18,7 @@ class RoundTableViewCell: UITableViewCell {
     
     @IBOutlet weak var scoreLabel: UILabel!
     
+    
     static var nib: UINib {
         return UINib(nibName: String(describing: self), bundle: nil)
     }
@@ -34,8 +35,11 @@ class RoundTableViewCell: UITableViewCell {
     }
     
     func configure(course: String, par: Int, score: Int) {
+        courseLabel.adjustsFontSizeToFitWidth = true
         courseLabel.text = "Course: \(course)"
+        parLabel.adjustsFontSizeToFitWidth = true
         parLabel.text = "Par: \(par)"
+        scoreLabel.adjustsFontSizeToFitWidth = true
         scoreLabel.text = "Score: \(score)"
     }
     
